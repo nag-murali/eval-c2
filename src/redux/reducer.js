@@ -7,16 +7,19 @@ export const reducer = (store = init, action) => {
     
     switch(action.type){
       case SEARCH:
+        //   console.log(action)
           let temp = [];
          temp =  action.ori_data.filter( (each) => {
            
                 let str = each.title;
                 if(str == undefined){
+                  
                     return ;
                 }
-               
+       
+          
                 if(str.includes(action.payload)){
-                    return each;
+                  return each;
                 }
           });
 

@@ -9,7 +9,7 @@ const navigate = useNavigate();
             <input placeholder="Search" type="text" className="search-box" onKeyPress={
                 (e) => {
                    if(e.key == "Enter"){
-                       navigate(`/search/:${e.target.value}`)
+                       navigate(`/search/${e.target.value}`)
                    }
                 }
             }/>

@@ -11,16 +11,21 @@ const data = useSelector( (store) => store.results);
 const dispatch = useDispatch();
 console.log(data)
 const [text, setText] =  useState("");
-
+const {keyword} = useParams();
 const getData = (text) => {
    axios("https://fast-reef-22226.herokuapp.com/data")
    .then( (res) => {
        dispatch(data_search(text,res.data));
-       console.log(res.data)
+     
    })
 }
-console.log(text);
-    const {keyword} = useParams();
+
+useEffect(() => {
+    console.log(keyword)
+    getData(keyword)
+},[])
+
+    
     return (
         <div>
             <h1>search page: {keyword}</h1>
