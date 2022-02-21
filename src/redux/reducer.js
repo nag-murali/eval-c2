@@ -23,12 +23,15 @@ export const reducer = (store = init, action) => {
          return {...store, results: [...temp]};
 
          case ALPHA_ASC:
-            console.log("here")
+
              let temp_sort = store.results.sort( function (a , b) {return a.title.toLoweCase - b.title.toLoweCase});
              return store;
           case  QUALITY_ASC:
               let temp_qu = store.results.sort(function (a, b) { return a.quality - b.quality});
               return {...store, results:[...temp_qu]}
+              case  QUALITY_DESC:
+                let temp_qur = store.results.sort(function (a, b) { return b.quality - a.quality});
+                return {...store, results:[...temp_qur]}    
           default:
               return store;
     }
